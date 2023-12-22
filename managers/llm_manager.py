@@ -2,7 +2,7 @@ import openai
 
 class LLM:
     def __init__(self) -> None:
-        openai.api_key = "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"
+        openai.api_key = "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"
         self.model = "gpt-3.5-turbo"
         self.primer = """
 Eres un chatbot diseñado para responder preguntas sobre el decreto que hizo el presidente electo de Argentina, Javier Milei.

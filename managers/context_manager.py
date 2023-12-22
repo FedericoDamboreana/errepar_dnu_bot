@@ -11,7 +11,7 @@ class ContextManager:
     def load_db(self):
         self.chroma_db = Chroma(persist_directory=self.store_path, embedding_function=self.embedding_function)
         print(">>> context manager - db loaded: ", self.chroma_db)
-        return self
+        # return self
 
     def get_matches(self, query):
         matches = self.chroma_db.similarity_search(query, k=10)

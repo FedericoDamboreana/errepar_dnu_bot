@@ -4,16 +4,18 @@ from managers.history_manager import HistoryManager
 from managers.context_manager import ContextManager
 from managers.llm_manager import LLM
 
-context_manager = ContextManager("./store").load_db()
+context_manager = ContextManager("./store")
+context_manager.load_db()
 history_manager = HistoryManager()
 
 llm = LLM()
-
+print("Hola hola me imprimi 1")
 app = Flask(__name__)
+print("Hola hola me imprimi 2")
 cors = CORS(app)
+print("Hola hola me imprimi 3")
 app.config['CORS_HEADERS'] = "Content-Type"
-
-
+print("Hola hola me imprimi 4")
 @app.route('/question', methods=['POST'])
 @cross_origin()
 def question():
@@ -26,5 +28,5 @@ def question():
     return {"message": response}
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
