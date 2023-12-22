@@ -15,12 +15,12 @@ app.config['CORS_HEADERS'] = "Content-Type"
 @app.route('/question', methods=['POST'])
 def question():
     data = request.json
-    history_manager.add_user_message(data["question"])
-    history = history_manager.get_history()
-    matches = context_manager.get_matches(data["question"])
-    prompt = "Contexto: " + matches + "\n\nMensaje: " + data["question"]
-    response = llm.run(history, prompt)
-    return response
+    if len(data["historial"]) >= 8:
+        return {"message": "Si querés seguir haciendo consultas, suscribite y usá sin límites la herramienta de IA"}
+    matches = context_manager.get_matches(data["historial"][-1]["content"])
+    prompt = "Contexto: " + matches + "\n\nMensaje: " + data["historial"][-1]["content"]
+    response = llm.run(data["historial"], prompt)
+    return {"message": response}
 
 
 if __name__ == '_main_':
