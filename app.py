@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from managers.history_manager import HistoryManager
 from managers.context_manager import ContextManager
 from managers.llm_manager import LLM
@@ -9,10 +10,12 @@ history_manager = HistoryManager()
 llm = LLM()
 
 app = Flask(__name__)
+cors = CORS(app)
 app.config['CORS_HEADERS'] = "Content-Type"
 
 
 @app.route('/question', methods=['POST'])
+@cross_origin()
 def question():
     data = request.json
     if len(data["historial"]) >= 8:
