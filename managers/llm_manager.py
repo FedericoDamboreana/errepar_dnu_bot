@@ -1,10 +1,14 @@
 import openai
 
 class LLM:
-    def __init__(self, model, primer, api_key) -> None:
-        openai.api_key = api_key
-        self.model = model
-        self.primer = primer
+    def __init__(self) -> None:
+        openai.api_key = "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"
+        self.model = "gpt-3.5-turbo"
+        self.primer = """
+Eres un chatbot diseñado para responder preguntas sobre el decreto que hizo el presidente electo de Argentina, Javier Milei.
+En cada pregunta, se te va a enviar también un contexto compuesto por extractos del decreto. Adjuntá los datos como numero de articulo siempre que puedas.
+Usa el contexto para responder las preguntas del usuario pero no referencies el contexto en si mismo.
+"""
     
     def run(self, history, prompt):
         messages = []

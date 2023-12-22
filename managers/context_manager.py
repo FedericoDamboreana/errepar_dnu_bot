@@ -1,6 +1,7 @@
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Chroma
 
+
 class ContextManager:
     def __init__(self, store_path):
         self.store_path = store_path
