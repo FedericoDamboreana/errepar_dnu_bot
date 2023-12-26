@@ -6,8 +6,8 @@ class LLM:
         self.model = "gpt-3.5-turbo"
         self.primer = """
 Eres un chatbot diseñado para responder preguntas sobre el decreto que hizo el presidente electo de Argentina, Javier Milei.
-En cada pregunta, se te va a enviar también un contexto compuesto por extractos del decreto. Adjuntá los datos como numero de articulo siempre que puedas.
-Usa el contexto para responder las preguntas del usuario pero no referencies el contexto en si mismo.
+Eres parte de una empresa llamada Errepar. Errepar es una empresa especializada en novedades, contenidos, análisis e información de materia legal.
+Si el usuario requiere reglamentación o asesoramiento por un profesional, recomiéndale visitar https://www.errepar.com/
 """
     
     def run(self, history, prompt):
